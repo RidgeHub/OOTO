@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Out of the Ordinary - Official Website</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=VT323&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #f5f0e8;
+    color: #2a1a00;
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    cursor: crosshair;
+    overflow-x: hidden;
+  }
+
+  /* LIGHT TEXTURE */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 40%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 10%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 60%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 25%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 70%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 80%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 85%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 35%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 50%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 65%, #c8a060 0%, transparent 100%),
+      radial-gradient(1px 1px at 78% 45%, #c8a060 0%, transparent 100%),
+      radial-gradient(2px 2px at 20% 5%, #aa7722 0%, transparent 100%),
+      radial-gradient(2px 2px at 55% 90%, #aa7722 0%, transparent 100%),
+      radial-gradient(2px 2px at 95% 15%, #aa7722 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* MARQUEE */
+  .marquee-bar {
+    background: linear-gradient(90deg, #003399, #0055aa, #003399);
+    border-top: 2px solid #cc6600;
+    border-bottom: 2px solid #cc6600;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 4px 0;
+    position: relative;
+    z-index: 10;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: #ffdd00;
+    letter-spacing: 2px;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 20px 10px 10px;
+    position: relative;
+    z-index: 5;
+    background: radial-gradient(ellipse at center top, #d0e4f8 0%, transparent 70%);
+  }
+
+  .cross-graphic {
+    font-size: 48px;
+    color: #aa4400;
+    text-shadow: 0 0 10px #ff6600, 0 0 20px #cc4400;
+    animation: glow-pulse 2s ease-in-out infinite;
+    display: block;
+    margin-bottom: 8px;
+  }
+  @keyframes glow-pulse {
+    0%, 100% { text-shadow: 0 0 10px #ff6600, 0 0 20px #cc4400; }
+    50% { text-shadow: 0 0 20px #ff9900, 0 0 40px #ff6600, 0 0 60px #cc4400; }
+  }
+
+  h1.band-name {
+    font-family: 'Cinzel', serif;
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #004499;
+    text-shadow: 3px 3px 0 #cc8800, 6px 6px 0 #aa6600;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .tagline {
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    color: #0044aa;
+    letter-spacing: 4px;
+    text-shadow: none;
+    margin-bottom: 4px;
+  }
+
+  .acronym-badge {
+    display: inline-block;
+    background: #fff8ee;
+    border: 3px solid #cc6600;
+    color: #aa4400;
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 16px;
+    padding: 8px 30px;
+    margin: 10px auto;
+    box-shadow: 4px 4px 0 #cc8800;
+    text-transform: uppercase;
+  }
+
+  /* NAV */
+  nav {
+    background: linear-gradient(180deg, #d0e4f8 0%, #b8d0ee 100%);
+    border-top: 1px solid #cc6600;
+    border-bottom: 1px solid #cc6600;
+    text-align: center;
+    padding: 8px 0;
+    position: relative;
+    z-index: 5;
+  }
+  nav a {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #002266;
+    text-decoration: none;
+    padding: 5px 16px;
+    margin: 0 2px;
+    border: 1px solid #5588cc;
+    background: linear-gradient(180deg, #ddeeff 0%, #bbd4f0 100%);
+    text-transform: uppercase;
+    transition: all 0.1s;
+  }
+  nav a:hover {
+    background: linear-gradient(180deg, #4499dd 0%, #1166bb 100%);
+    border-color: #cc6600;
+    color: #fff;
+    text-shadow: 0 0 4px #004499;
+  }
+
+  /* LAYOUT */
+  .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px 12px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  /* SECTIONS */
+  .section-box {
+    border: 2px solid #5588cc;
+    background: linear-gradient(180deg, rgba(248,252,255,0.97) 0%, rgba(235,244,255,0.98) 100%);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .section-title {
+    background: linear-gradient(90deg, #003399, #0055aa, #003399);
+    border-bottom: 2px solid #cc6600;
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #fff8cc;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    text-align: center;
+  }
+
+  .section-content {
+    padding: 14px 16px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #2a1a00;
+  }
+
+  .welcome-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #2a1a00;
+  }
+  .welcome-text .verse {
+    font-style: italic;
+    color: #004499;
+    border-left: 3px solid #1155cc;
+    padding-left: 12px;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .welcome-text strong {
+    color: #880000;
+  }
+
+  /* ALBUM BOX */
+  .album-art {
+    width: 100%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto 12px;
+    border: 3px solid #ff6600;
+    box-shadow: 0 0 20px #660000, 0 0 40px #330000;
+  }
+
+  /* CD GRAPHIC */
+  .cd-art {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #ff6600 0deg, #ffcc00 30deg, #ffffff 60deg,
+      #4499dd 90deg, #003399 120deg, #001155 150deg,
+      #ff3300 180deg, #ff6600 210deg, #ffcc00 240deg,
+      #ffffff 270deg, #4499dd 300deg, #002266 330deg, #ff6600 360deg
+    );
+    border: 4px solid #ffcc00;
+    box-shadow: 0 0 30px #ff6600, 0 0 60px #660000;
+    margin: 0 auto 12px;
+    position: relative;
+    animation: cd-spin 8s linear infinite;
+  }
+  .cd-art::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #f0e8ff;
+    border: 2px solid #ffcc00;
+  }
+  @keyframes cd-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* TOUR DATES */
+  .tour-date {
+    border-bottom: 1px dashed #cc99dd;
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+  .tour-date:last-child { border-bottom: none; }
+  .date-str {
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+    color: #993300;
+    min-width: 80px;
+  }
+  .venue-info { color: #442200; flex: 1; padding: 0 10px; }
+  .ticket-btn {
+    background: linear-gradient(180deg, #880000 0%, #660000 100%);
+    border: 1px solid #cc3300;
+    color: #fff8cc;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    padding: 3px 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .ticket-btn:hover {
+    background: linear-gradient(180deg, #aa0000 0%, #880000 100%);
+    color: #fff;
+  }
+
+  /* GUESTBOOK */
+  .guestbook-entry {
+    border-bottom: 1px dotted #cc99dd;
+    padding: 8px 0;
+    font-size: 13px;
+  }
+  .guestbook-entry:last-child { border-bottom: none; }
+  .gb-name {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: #993300;
+  }
+  .gb-msg { color: #331100; margin-top: 2px; }
+  .gb-location { font-size: 11px; color: #886655; font-style: italic; }
+
+  /* SIDEBAR */
+  .sidebar-box {
+    border: 2px solid #5588cc;
+    background: rgba(250, 245, 255, 0.97);
+    margin-bottom: 14px;
+  }
+
+  .counter-display {
+    font-family: 'VT323', monospace;
+    font-size: 36px;
+    color: #006622;
+    text-align: center;
+    background: #e8f5e8;
+    border: 2px inset #aaddaa;
+    padding: 6px;
+    letter-spacing: 6px;
+    text-shadow: none;
+    margin: 10px;
+  }
+
+  /* PRAYER REQUEST */
+  .prayer-form input, .prayer-form textarea {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #5588cc;
+    color: #2a1a00;
+    font-family: 'Crimson Text', serif;
+    font-size: 13px;
+    padding: 4px 8px;
+    margin-bottom: 6px;
+    resize: vertical;
+  }
+  .prayer-form textarea { height: 60px; }
+  .prayer-form button {
+    width: 100%;
+    background: linear-gradient(180deg, #0055bb 0%, #004488 100%);
+    border: 2px outset #3377cc;
+    color: #fff8cc;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .prayer-form button:active {
+    border-style: inset;
+  }
+
+  /* WEB RING */
+  .webring {
+    text-align: center;
+    padding: 10px;
+    font-size: 11px;
+    color: #886699;
+    border-top: 1px solid #440066;
+  }
+  .webring a { color: #4499dd; text-decoration: none; }
+  .webring a:hover { text-decoration: underline; }
+
+  .under-construction {
+    text-align: center;
+    padding: 8px;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: #fff;
+    background: repeating-linear-gradient(
+      45deg,
+      #cc6600,
+      #cc6600 10px,
+      #ff9900 10px,
+      #ff9900 20px
+    );
+    border: 2px solid #884400;
+    letter-spacing: 2px;
+    margin-top: 8px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px 10px;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: #663300;
+    border-top: 2px solid #cc8800;
+    position: relative;
+    z-index: 5;
+    letter-spacing: 2px;
+    background: linear-gradient(0deg, #f5e8d0 0%, transparent 100%);
+  }
+  footer span { color: #880000; }
+
+  .flames {
+    font-size: 28px;
+    display: block;
+    animation: flicker 1.5s ease-in-out infinite alternate;
+  }
+  @keyframes flicker {
+    0% { opacity: 1; letter-spacing: 4px; }
+    100% { opacity: 0.7; letter-spacing: 8px; }
+  }
+
+  .new-gif {
+    display: inline-block;
+    background: #ff0000;
+    color: #ffff00;
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    padding: 1px 5px;
+    animation: blink 0.6s step-end infinite;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .scripture-ticker {
+    background: #eefff0;
+    border: 1px solid #44aa66;
+    padding: 4px 10px;
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+    color: #006622;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 14px;
+  }
+  .scripture-inner {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+    letter-spacing: 1px;
+  }
+
+  .song-title {
+    color: #993300;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .track-list { list-style: none; padding: 0; }
+  .track-list li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #cc99dd;
+    display: flex;
+    gap: 10px;
+  }
+  .track-list li:last-child { border-bottom: none; }
+  .track-num {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: #0044aa;
+    min-width: 22px;
+  }
+
+  .band-member {
+    padding: 8px 0;
+    border-bottom: 1px dotted #cc99dd;
+    font-size: 13px;
+  }
+  .band-member:last-child { border-bottom: none; }
+  .member-name {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #004499;
+  }
+  .member-role { color: #0044aa; font-size: 12px; font-style: italic; }
+  .member-fave { color: #664422; font-size: 12px; }
+
+  a.email-link {
+    color: #004499;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  a.email-link:hover { color: #aa0000; }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid #cc99dd;
+    margin: 10px 0;
+  }
+
+  .best-viewed {
+    font-size: 11px;
+    color: #886644;
+    text-align: center;
+    padding: 4px;
+    font-family: 'VT323', monospace;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<div class="marquee-bar">
+  <span class="marquee-inner">
+    ✝ WELCOME TO THE OFFICIAL OOTO WEBSITE ✝ &nbsp;&nbsp;&nbsp; OUT OF THE ORDINARY - RISING ABOVE THE ORDINARY WORLD ✝ &nbsp;&nbsp;&nbsp; NEW ALBUM "HIGHER GROUND" NOW AVAILABLE AT CHRISTIAN BOOKSTORES NATIONWIDE ✝ &nbsp;&nbsp;&nbsp; PROUDLY FROM NORTHSIDE BAPTIST CHURCH — INDIANAPOLIS, IN ✝ &nbsp;&nbsp;&nbsp; JOHN 15:19 - "YOU DO NOT BELONG TO THE WORLD, BUT I HAVE CHOSEN YOU OUT OF THE WORLD" ✝ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+
+<header>
+  <span class="cross-graphic">✝</span>
+  <h1 class="band-name">Out of the Ordinary</h1>
+  <div class="tagline">Praise. Rock. Revival.</div>
+  <div class="acronym-badge">O &nbsp; O &nbsp; T &nbsp; O</div>
+  <div style="font-family:'VT323',monospace; font-size:14px; color:#886633; letter-spacing:3px; margin-top:4px;">est. 1997 &bull; Indianapolis, IN &bull; Northside Baptist Church</div>
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Music</a>
+  <a href="#">Tour</a>
+  <a href="#">Photos</a>
+  <a href="#">Devotions</a>
+  <a href="#">Guestbook</a>
+  <a href="#">Contact</a>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="scripture-ticker">
+    <span class="scripture-inner">
+      ✝ Romans 12:2 — "Do not conform to the pattern of this world, but be transformed by the renewing of your mind." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✝ Psalm 98:1 — "Sing to the Lord a new song, for He has done marvelous things." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✝ Colossians 3:16 — "Let the message of Christ dwell among you richly as you teach and admonish one another with all wisdom through psalms, hymns, and songs from the Spirit." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+  </div>
+
+  <div class="columns">
+
+    <!-- MAIN COLUMN -->
+    <div>
+
+      <!-- WELCOME -->
+      <div class="section-box">
+        <div class="section-title">✝ Welcome to OOTO.net ✝</div>
+        <div class="section-content">
+          <div class="welcome-text">
+            <p>Hey and <strong>GOD BLESS</strong> you for stopping by the official home of <strong>Out of the Ordinary</strong> on the World Wide Web! We are so pumped that you found us and we hope this site blesses your socks off.</p>
+            <div class="verse">"...chosen out of the world..." — John 15:19</div>
+            <p>OOTO started back in '97 in a basement at <strong>Northside Baptist Church</strong> in Indianapolis with nothing but a second-hand drum kit, two guitars, and a <strong>burning desire to praise the Lord</strong> through rock and roll. We believe God can use ANY sound to bring glory to His name — even distortion pedals!</p>
+            <p style="margin-top:10px;">Our mission is simple: <strong>bring the lost to the cross</strong> and fire up the saved. If you've been touched by our music, please sign the guestbook below and let us know. We read every single entry!</p>
+            <p style="margin-top:12px; font-family:'VT323',monospace; font-size:22px; color:#003399; letter-spacing:2px; border: 2px inset #aaccee; background:#eef4ff; padding:8px 12px; display:inline-block;">🖥️ Best viewed in <span style="color:#cc4400;">Internet Explorer 4.0</span> or <span style="color:#226600;">Netscape Navigator 4.5</span> at <span style="color:#880000;">800×600</span> resolution.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW ALBUM -->
+      <div class="section-box">
+        <div class="section-title">🎵 New Album: "Higher Ground" <span class="new-gif">NEW!</span></div>
+        <div class="section-content">
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div>
+              <div class="cd-art"></div>
+              <div style="text-align:center; font-family:'VT323',monospace; font-size:14px; color:#886633; letter-spacing:2px;">Spinning CD = 🔥🔥🔥</div>
+            </div>
+            <div style="flex:1;">
+              <p style="color:#ffcc00; font-family:'Cinzel',serif; font-size:16px; margin-bottom:8px;">Track Listing</p>
+              <ul class="track-list">
+                <li><span class="track-num">01.</span><span class="song-title">Higher Ground (Title Track)</span></li>
+                <li><span class="track-num">02.</span><span class="song-title">Out of the Ordinary</span></li>
+                <li><span class="track-num">03.</span><span class="song-title">Chosen Not Forsaken</span></li>
+                <li><span class="track-num">04.</span><span class="song-title">Fire in My Bones</span></li>
+                <li><span class="track-num">05.</span><span class="song-title">Never Going Back</span></li>
+                <li><span class="track-num">06.</span><span class="song-title">Redeemed (Acoustic)</span></li>
+                <li><span class="track-num">07.</span><span class="song-title">The Overcomer</span></li>
+                <li><span class="track-num">08.</span><span class="song-title">Arise and Shine</span></li>
+                <li><span class="track-num">09.</span><span class="song-title">OOTO (Our Anthem)</span></li>
+                <li><span class="track-num">10.</span><span class="song-title">World Without End</span></li>
+              </ul>
+              <p style="margin-top:10px; font-size:13px; color:#664422;">Available at LifeWay Christian Stores, Family Christian, and all good Christian bookstores. $13.99 CD / $10.99 Cassette.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOUR DATES -->
+      <div class="section-box">
+        <div class="section-title">🎸 1999 Tour Dates</div>
+        <div class="section-content">
+          <div class="tour-date">
+            <span class="date-str">MAR 5</span>
+            <span class="venue-info">First Assembly of God — Tulsa, OK</span>
+            <button class="ticket-btn">Tickets</button>
+          </div>
+          <div class="tour-date">
+            <span class="date-str">MAR 12</span>
+            <span class="venue-info">CrossRoads Youth Conf. — Dallas, TX</span>
+            <button class="ticket-btn">Tickets</button>
+          </div>
+          <div class="tour-date">
+            <span class="date-str">MAR 20</span>
+            <span class="venue-info">Cornerstone Youth Night — Memphis, TN</span>
+            <button class="ticket-btn">Tickets</button>
+          </div>
+          <div class="tour-date">
+            <span class="date-str">APR 2</span>
+            <span class="venue-info">Teen Mania Acquire the Fire — OKC, OK</span>
+            <button class="ticket-btn">Tickets</button>
+          </div>
+          <div class="tour-date">
+            <span class="date-str">APR 17</span>
+            <span class="venue-info">New Life Church — Colorado Springs, CO</span>
+            <button class="ticket-btn">Tickets</button>
+          </div>
+          <div class="tour-date">
+            <span class="date-str">MAY 28</span>
+            <span class="venue-info">Creation Fest — Mt. Union, PA</span>
+            <button class="ticket-btn">Info</button>
+          </div>
+          <p style="margin-top:10px; font-size:12px; color:#664422; font-style:italic;">✝ All shows are FREE unless noted. Freewill offering taken. Youth groups get in half price with youth pastor present!</p>
+        </div>
+      </div>
+
+      <!-- MEET THE BAND -->
+      <div class="section-box">
+        <div class="section-title">👥 Meet the Band</div>
+        <div class="section-content">
+          <div class="band-member">
+            <div class="member-name">Ryan Law</div>
+            <div class="member-role">Lead Vocals</div>
+            <div class="member-fave">Fave verse: Romans 8:37 &bull; Influences: Audio Adrenaline, DC Talk</div>
+          </div>
+          <div class="band-member">
+            <div class="member-name">James McManus</div>
+            <div class="member-role">Guitar</div>
+            <div class="member-fave">Fave verse: Philippians 4:13 &bull; Influences: P.O.D., Petra</div>
+          </div>
+          <div class="band-member">
+            <div class="member-name">Jon Wyche</div>
+            <div class="member-role">Bass Guitar</div>
+            <div class="member-fave">Fave verse: Isaiah 40:31 &bull; Influences: Newsboys, Third Day</div>
+          </div>
+          <div class="band-member">
+            <div class="member-name">Jeff Cross</div>
+            <div class="member-role">Drums</div>
+            <div class="member-fave">Fave verse: Psalm 150:5 &bull; Influences: Jars of Clay, Switchfoot</div>
+          </div>
+          <p style="margin-top:10px; font-size:13px; color:#664422; font-style:italic;">✝ Rooted at <strong style="color:#003399;">Northside Baptist Church</strong> — Indianapolis, IN</p>
+        </div>
+      </div>
+
+      <!-- GUESTBOOK -->
+      <div class="section-box">
+        <div class="section-title">📖 Guestbook</div>
+        <div class="section-content">
+          <div class="guestbook-entry">
+            <div class="gb-name">PrayzGrl99</div>
+            <div class="gb-msg">I heard OOTO at Acquire the Fire last fall and my life has NEVER been the same!! God used your music to speak directly to my heart. Keep rocking for Jesus!! ✝✝✝</div>
+            <div class="gb-location">Wichita, KS &mdash; February 28, 1999</div>
+          </div>
+          <div class="guestbook-entry">
+            <div class="gb-name">YouthPastorDave</div>
+            <div class="gb-msg">Brought 47 students to your show last month. 12 gave their lives to Christ that night. TWELVE. You guys are doing the Lord's work, keep it up. Booking you for our summer camp!</div>
+            <div class="gb-location">Fort Worth, TX &mdash; February 22, 1999</div>
+          </div>
+          <div class="guestbook-entry">
+            <div class="gb-name">Redeemed_Daniel</div>
+            <div class="gb-msg">Was totally into secular metal before my buddy played me "Fire in My Bones" in his Jeep. That guitar riff hit me harder than anything I'd ever heard and I knew God was calling me home. Thank you OOTO.</div>
+            <div class="gb-location">Nashville, TN &mdash; February 19, 1999</div>
+          </div>
+          <div class="guestbook-entry">
+            <div class="gb-name">SarahBlessedForever</div>
+            <div class="gb-msg">Can you guys PLEASE come to Georgia?? My whole youth group has been listening to Higher Ground every day before school and we need you here!!! God bless!! :)</div>
+            <div class="gb-location">Atlanta, GA &mdash; February 10, 1999</div>
+          </div>
+          <hr class="divider">
+          <p style="font-size:13px; color:#664422; text-align:center; margin-top:8px;">Want to sign the guestbook? <a href="#" style="color:#004499;">Click here!</a><br><span style="font-size:11px; color:#886644;">(Requires email address. No spam — we hate that stuff too!)</span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div>
+
+      <!-- VISITOR COUNTER -->
+      <div class="sidebar-box">
+        <div class="section-title" style="font-size:12px;">Site Visitors</div>
+        <div class="counter-display">0 0 4 7 2 8 1</div>
+        <p style="text-align:center; font-family:'VT323',monospace; font-size:14px; color:#226622; padding-bottom:8px; letter-spacing:1px;">YOU are visitor #47,281 !</p>
+      </div>
+
+      <!-- PRAYER REQUESTS -->
+      <div class="sidebar-box">
+        <div class="section-title" style="font-size:12px;">🙏 Prayer Request</div>
+        <div class="section-content" style="padding:10px;">
+          <p style="font-size:13px; color:#442200; margin-bottom:8px; line-height:1.5;">We PRAY over every request we receive. Let us stand with you!</p>
+          <div class="prayer-form">
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Email (optional)" />
+            <textarea placeholder="Share your prayer request..."></textarea>
+            <button type="button">✝ Send Prayer ✝</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- OOTO MEANING -->
+      <div class="sidebar-box">
+        <div class="section-title" style="font-size:12px;">What is OOTO?</div>
+        <div class="section-content" style="padding:10px;">
+          <p style="font-family:'VT323',monospace; font-size:22px; line-height:1.8; text-align:center; letter-spacing:2px;">
+            <span style="color:#880000;">O</span><span style="color:#2a1a00;">ut of the</span><br>
+            <span style="color:#880000;">O</span><span style="color:#2a1a00;">rdinary</span><br>
+            <span style="color:#880000;">T</span><span style="color:#2a1a00;">hrough</span><br>
+            <span style="color:#880000;">O</span><span style="color:#2a1a00;">bedience</span>
+          </p>
+          <hr class="divider">
+          <p style="font-size:12px; color:#664422; line-height:1.6; font-style:italic; text-align:center;">"We are called to live differently — set apart, sanctified, and SOLD OUT for God."</p>
+        </div>
+      </div>
+
+      <!-- LINKS -->
+      <div class="sidebar-box">
+        <div class="section-title" style="font-size:12px;">🔗 Cool Christian Links</div>
+        <div class="section-content" style="padding:10px; font-size:13px;">
+          <p style="margin-bottom:4px;"><a href="#" style="color:#004499;">↗ Audio Adrenaline</a></p>
+          <p style="margin-bottom:4px;"><a href="#" style="color:#004499;">↗ DC Talk Official</a></p>
+          <p style="margin-bottom:4px;"><a href="#" style="color:#004499;">↗ Newsboys</a></p>
+          <p style="margin-bottom:4px;"><a href="#" style="color:#004499;">↗ Acquire the Fire</a></p>
+          <p style="margin-bottom:4px;"><a href="#" style="color:#004499;">↗ Teen Mania Ministries</a></p>
+          <p style="margin-bottom:4px;"><a href="#" style="color:#004499;">↗ Bible Gateway</a></p>
+          <p style="margin-bottom:4px;"><a href="#" style="color:#004499;">↗ Christian Music Planet</a></p>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="sidebar-box">
+        <div class="section-title" style="font-size:12px;">📧 Contact OOTO</div>
+        <div class="section-content" style="padding:10px; text-align:center;">
+          <p style="font-size:12px; color:#442200; margin-bottom:6px;">Booking &amp; general inquiries:</p>
+          <a href="mailto:ooto@ooto.net" class="email-link">ooto@ooto.net</a>
+          <hr class="divider" style="margin:8px 0;">
+          <p style="font-size:12px; color:#442200; margin-bottom:4px;">Fan Mail:</p>
+          <p style="font-size:12px; color:#664422; font-style:italic; line-height:1.5;">Out of the Ordinary<br>P.O. Box 4817<br>Indianapolis, IN 46240</p>
+        </div>
+      </div>
+
+      <div class="under-construction">
+        ⚠ PHOTOS PAGE<br>COMING SOON!! ⚠
+      </div>
+
+      <div class="best-viewed">
+        BEST VIEWED 800x600 &bull; IE 4.0+
+        <br>© 1999 OOTO MINISTRIES
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="flames">🔥 🔥 🔥</span>
+  Out of the Ordinary &mdash; OOTO &mdash; Indianapolis, IN<br>
+  <span>© 1999 OOTO Ministries. All Rights Reserved.</span><br>
+  <span style="font-size:13px; color:#663300; letter-spacing:1px;">"Set Apart. Sold Out. Sent Forth."</span><br>
+  <span style="font-size:12px; color:#886644; letter-spacing:1px; margin-top:6px; display:block;">Site designed by <span style="color:#aa6622;">BlessedWebDesigns.geocities.com</span></span>
+</footer>
+
+</body>
+</html>
